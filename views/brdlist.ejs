@@ -1,0 +1,43 @@
+<!-- 로그인 데이터가 없다면 접근 불가하게 설정 -->
+<% if(!userData){ %>
+    <script>
+        alert("비회원은 접근할수 없는 페이지 입니다.")
+        location.href = "/login";
+    </script>
+<% } %>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include("common/header.ejs") %>
+    <div id="container">
+        <div class="brd_center">
+          <table>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성시간</th>
+            </tr>
+            <% for(let i = 0; i < brdData.length; i++){ %>
+                <tr>
+                    <td><%- brdData[i].brdid %></td>
+                    <td><a href="/brddetail/<%- brdData[i].brdid %>"><%- brdData[i].brdtitle %></a></td>
+                    <td><%- brdData[i].brdauther %></td>
+                    <td> <%- brdData[i].brddate %> </td>
+                </tr>
+            <% } %>
+          </table>
+          <a href="/brdinsert">게시글 작성</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+#header {
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+}
+#header .center {
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#header .center .logo {
+  font-size: 25px;
+}
+#header .center .logo a {
+  color: #000;
+}
+#header .center .gnb {
+  display: flex;
+}
+#header .center .gnb > li {
+  margin: 0 15px;
+  line-height: 100px;
+}
+#header .center .gnb > li > a {
+  color: red;
+}
+#header .center .condition {
+  display: flex;
+}
+#header .center .condition .member {
+  color: #000;
+  margin: 0 10px;
+}
+#header .center .condition .logout {
+  color: red;
+  margin: 0 10px;
+}

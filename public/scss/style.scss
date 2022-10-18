@@ -1,0 +1,43 @@
+* {margin:0; padding:0;}
+ul,ol,li {list-style:none;}
+a {text-decoration:none;}
+
+// 공통 상단영역 레이아웃
+#header {
+    background-color:pink;
+    display:flex;
+    justify-content:center;
+    .center {
+        width:1200px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        .logo {
+            font-size:25px;
+            a {
+                color:#000;
+            }
+        }
+        .gnb {
+            display:flex;
+            > li {
+                margin:0 15px;
+                line-height:100px;
+                > a {
+                    color:red;
+                }
+            }
+        }
+        .condition {
+            display:flex;
+            .member {
+                color:#000;
+                margin:0 10px;
+            }
+            .logout {
+                color:red;
+                margin:0 10px;
+            }
+        }
+    }
+}

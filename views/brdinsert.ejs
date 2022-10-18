@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 작성 페이지</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include("common/header.ejs") %>
+    <div id="container">
+        <div class="brd_center">
+            <form id="brd_form" action="/add" method="post">
+                <input type="text" name="title" placeholder="제목">
+                <textarea name="context" placeholder="내용"></textarea>
+                <button type="submit">게시글 작성</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!-- 로그인 데이터가 없다면 접근 불가하게 설정 -->
+<% if(!userData){ %>
+    <script>
+        alert("비회원은 접근할수 없는 페이지 입니다.")
+        location.href = "/login";
+    </script>
+<% } %>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상세페이지</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include("common/header.ejs") %>
+    <div id="container">
+        <div class="brd_center">
+            <div><%- brdData.brdid %></div>
+            <div><%- brdData.brdtitle %></div>
+            <div><%- brdData.brdcontext %></div>
+            <div><%- brdData.brdauther %></div>
+        </div>
+
+        <!-- 
+            server.js에서 넘겨준 userData에 있는 nick과 db에서 가져온 brdData에 있는 nick과 일치한다면
+            수정, 삭제버튼이 보인다.
+        -->
+        <% if(userData.joinnick === brdData.brdauther) { %>
+            <a href="#">수정</a>
+            <a href="#">삭제</a>
+        <% } %>
+        <a href="/brdlist">목록</a>
+    </div>
+</body>
+</html>

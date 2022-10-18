@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 페이지</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div id="join_container">
+        <div class="center">
+            <form id="join_form" action="/joindb" method="post">
+                <div class="line">
+                    <!-- 아이디 -->
+                    <label for="userid">아이디</label>
+                    <input type="text" name="userid" id="userid" class="userch">
+                    <span></span>
+                </div>
+                <div class="line">
+                    <!-- 비밀번호 -->
+                    <label for="userpass">비밀번호</label>
+                    <input type="text" name="userpass" id="userpass" class="userch">
+                    <span></span>
+                </div>
+                <div class="line">
+                    <!-- 비밀번호 확인 -->
+                    <label for="userpassch">비밀번호 확인</label>
+                    <input type="text" name="userpassch" id="userpassch">
+                    <span></span>
+                </div>                
+                <div class="line">
+                    <!-- 닉네임 -->
+                    <label for="usernick">닉네임</label>
+                    <input type="text" name="usernick" id="usernick">
+                    <span></span>
+                </div>
+                <div class="line">
+                    <!-- 이메일 -->
+                    <label for="usernick">이메일</label>
+                    <input type="text" name="useremail" id="useremail" class="userch">
+                    <span></span>
+                </div>
+                <div class="line">
+                    <!-- 전화번호 -->
+                    <label for="usernick">전화번호</label>
+                    <input type="text" name="userphone" id="userphone" class="userch">
+                    <span></span>
+                </div>
+                <!-- 비밀번호 확인 추가할것! -->
+
+                <!-- <button type="submit" disabled="true">로그인</button> -->
+                <button type="submit">회원가입</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        // 입력한 아이디 ~ 전화번호 전부 정규표현식으로 처리 후
+        // 제대로 입력되었다면 전송!
+        // 변수 세팅
+        const userch = document.querySelectorAll(".line .userch")
+        const passch = document.querySelector(".line #userpassch")
+        const pass = document.querySelector(".line #userpass")
+
+        // 객체로 세팅
+        let check = [
+            {
+                // 아이디 확인 정규포현식
+                check:/^ \w{3,12} $/,
+                trueMessage:"아이디를 형식에 맞게 입력하셨습니다.",
+                falseMessage:"아이디는 3글자에서 12글자 사이의 영문 대소문자, 숫자, 특수문자 _만 사용할 수 있습니다.",
+            },
+            {
+                // 비밀번호 확인 정규포현식
+                check:/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/,
+                trueMessage:"비밀번호를 형식에 맞게 입력하셨습니다.",
+                falseMessage:"비밀번호는 8자리 이상 25자리 이하의 영문 대소문자, 숫자, 특수문자 !@#$%^*+=-_ 를 조합해서 기입해야 합니다. ",
+            },
+            {
+                // 이메일 확인 정규포현식
+                check:/^ [\w]+\@+[a-z]+\.[a-z]{2,3} $/,
+                trueMessage:"이메일을 형식에 맞게 입력하셨습니다.",
+                falseMessage:"이메일을 다시한번 확인해 주세요",
+            },
+            {
+                // 전화번호 확인 정규포현식
+                check:/^ (010|011|017)\-\d{4}\-\d{4} $/,
+                trueMessage:"전화번호를 맞게 입력하셨습니다.",
+                falseMessage:"전화번호를 다시한번 확인해 주세요.",
+            }
+        ]
+
+        userch.addEventListner("keyup",function(){
+            
+        });
+
+
+    </script>
+</body>
+</html>
