@@ -58,10 +58,9 @@
         // 입력한 아이디 ~ 전화번호 전부 정규표현식으로 처리 후
         // 제대로 입력되었다면 전송!
         // 변수 세팅
-        const userch = document.querySelectorAll(".line .userch")
+        const line = document.querySelectorAll(".line")
         const passch = document.querySelector(".line #userpassch")
         const pass = document.querySelector(".line #userpass")
-
         // 객체로 세팅
         let check = [
             {
@@ -90,11 +89,21 @@
             }
         ]
 
-        userch.addEventListner("keyup",function(){
-            
-        });
+            line.querySelector(".userch").forEach(function(el,index){
+                el.addEventListener("keyup",function(){
+                    let joinvalue = el.value;
+                    let finalcheck = check.check.test(joinvalue);
 
-
+                    if (finalcheck) {
+                        // 성공메세지 출력
+                        el.querySelector("span").innerHTML = check.trueMessage;
+                    }
+                    else {
+                        // 실패메세지 출력
+                        el.querySelector("span").innerHTML = check.falseMessage;
+                    }
+                });
+            });
     </script>
 </body>
 </html>
