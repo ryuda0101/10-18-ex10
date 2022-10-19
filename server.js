@@ -153,23 +153,38 @@ app.get("/join",function(req,res){
 
 // 회원가입 페이지에서 보내준 데이터를 db에 저장요청
 app.post("/joindb",function(req,res){
-    db.collection("ex10_count").findOne({name:"회원정보"},function(err,result){
-        db.collection("ex10_join").insertOne({
-            joinno:result.joinCount + 1,
-            joinid:req.body.userid,
-            joinpass:req.body.userpass,
-            joinnick:req.body.usernick,
-            joinemail:req.body.useremail,
-            joinphone:req.body.userphone
-        },function(err,result){
-            // joinCount를 +1 해준다.
-            db.collection("ex10_count").updateOne({name:"회원정보"},{$inc:{joinCount:1}},function(err,result){
-                // 회원가입 후 로그인페이지 경로로 이동
-                res.redirect("/login");
+    // 회원가입시 입력한 데이터 중에 아이디 확인
+    db.collection("ex10_join").findOne({joinid:req.body.userid},function(err,result){
+        if(result){
+            res.send("<script> alert('이미 가입된 아이디 입니다.'); location.href = '/join'; </script>");
+        }
+        else {
+            db.collection("ex10_count").findOne({name:"회원정보"},function(err,result){
+                db.collection("ex10_join").insertOne({
+                    joinno:result.joinCount + 1,
+                    joinid:req.body.userid,
+                    joinpass:req.body.userpass,
+                    joinnick:req.body.usernick,
+                    joinemail:req.body.useremail,
+                    joinphone:req.body.userphone
+                },function(err,result){
+                    // joinCount를 +1 해준다.
+                    db.collection("ex10_count").updateOne({name:"회원정보"},{$inc:{joinCount:1}},function(err,result){
+                        // 회원가입 후 로그인페이지 경로로 이동
+                        res.send("<script> alert('회원가입을 축하드립니다.'); location.href = '/login' </script>")
+                    });
+                });
             });
-        });
+        }
     });
+
 });
+
+app.get("/test",function(req,res){
+    // res.send("<script>console.log('콘솔창이 잘 뜨고 있습니다.')</script>");
+    res.send("<script> alert('잘못된 경로 입니다.'); location.href='/login' </script>");
+});
+
 
 // 로그인 페이지 get 요청
 app.get("/login",function(req,res){
