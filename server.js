@@ -109,7 +109,6 @@ app.post("/add",function(req,res){
 
 // 게시글 상세 화면 get 요청
 app.get("/brddetail/:no",function(req,res){
-    
     // db안에 해당 게시글 번호에 맞는 데이터만 꺼내오고 ejs파일로 응답
     db.collection("ex10_board").findOne({brdid:Number(req.params.no)},function(err,result){
         res.render("brddetail.ejs", {brdData:result, userData:req.user})
@@ -119,13 +118,23 @@ app.get("/brddetail/:no",function(req,res){
 // 게시글 수정 페이지 get 요청
 app.get("/brdupt/:no",function(req,res){
     // db안에 해당 게시글 번호에 맞는 데이터만 꺼내오고 ejs파일로 응답
-    // input, textarea에다가 작성내용 미리 보여줌
+    db.collection("ex10_board").findOne({brdid:Number(req.params.no)},function(err,result){
+        // input, textarea에다가 작성내용 미리 보여줌
+        res.render("brdupdate.ejs", {brdData:result, userData:req.user})
+    });
 });
 
 // 수정페이지에서 입력한 데이터를 db에 수정 요청
 app.post("/update",function(req,res){
     // 해당 게시글 번호에 맞는 게시글 수정 처리
+   
+    db.collection("ex10_board").updateOne({brdid:Number(req.body.id)},{$set:{
+        brdtitle:req.body.title,
+        brdcontext:req.body.context
+    }},function(err,result){
     // 해당 게시글 상세 화면 페이지로 이동
+    res.redirect("/brddetail/" + req.body.id);
+    });
 });
 
 // 게시글 삭제 처리 get 요청

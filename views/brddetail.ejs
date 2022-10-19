@@ -18,23 +18,28 @@
 </head>
 <body>
     <%- include("common/header.ejs") %>
-    <div id="container">
+    <div id="brdDetail_container">
         <div class="brd_center">
-            <div><%- brdData.brdid %></div>
-            <div><%- brdData.brdtitle %></div>
-            <div><%- brdData.brdcontext %></div>
-            <div><%- brdData.brdauther %></div>
+            <div class="brdList_top">
+                <div class="brd_number"><%- brdData.brdid %></div>
+                <div class="brd_title"><%- brdData.brdtitle %></div>
+            </div>
+            <div class="brd_context"><%- brdData.brdcontext %></div>
+            <div class="brd_auther"><%- brdData.brdauther %></div>
         </div>
 
-        <!-- 
-            server.js에서 넘겨준 userData에 있는 nick과 db에서 가져온 brdData에 있는 nick과 일치한다면
-            수정, 삭제버튼이 보인다.
-        -->
-        <% if(userData.joinnick === brdData.brdauther) { %>
-            <a href="#">수정</a>
-            <a href="#">삭제</a>
-        <% } %>
-        <a href="/brdlist">목록</a>
+        <div class="brdDetail_btns">
+            <!-- 
+                server.js에서 넘겨준 userData에 있는 nick과 db에서 가져온 brdData에 있는 nick과 일치한다면
+                수정, 삭제버튼이 보인다.
+            -->
+            <% if(userData.joinnick === brdData.brdauther) { %>
+                <a href="/brdupt/<%- brdData.brdid %>">수정</a>
+                <a class="deleteBtn" href="/delete/<%- brdData.brdid %>">삭제</a>
+            <% } %>
+            <a href="/brdlist">목록</a>
+        </div>
     </div>
+    <script src="js/detail.js"></script>
 </body>
 </html>

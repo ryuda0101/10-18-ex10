@@ -49,3 +49,154 @@ a {
   color: red;
   margin: 0 10px;
 }
+
+#login_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#login_container .center {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#login_container .center #login_form {
+  font-size: 20px;
+}
+#login_container .center #login_form .line {
+  margin: 10px 0;
+}
+#login_container .center #login_form .line label {
+  width: 80px;
+  display: inline-block;
+}
+#login_container .center #login_form .line input {
+  width: 250px;
+  font-size: 20px;
+}
+#login_container .center #login_form .btnline {
+  display: flex;
+  justify-content: center;
+}
+#login_container .center #login_form .btnline button {
+  width: 80px;
+  height: 40px;
+  margin: 0 10px;
+}
+
+#join_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#join_container .center {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#join_container .center #join_form {
+  width: 30vw;
+  height: 30vh;
+}
+#join_container .center #join_form .line {
+  margin: 20px 0;
+}
+#join_container .center #join_form .line label {
+  width: 100%;
+  display: inline-block;
+}
+#join_container .center #join_form .line input {
+  width: 100%;
+  font-size: 20px;
+}
+#join_container .center #join_form .line span {
+  display: block;
+}
+#join_container .center #join_form button {
+  width: 80px;
+  height: 40px;
+  display: block;
+  margin: 0 auto;
+}
+
+#insert_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#insert_container .brd_center {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#insert_container .brd_center #brd_form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  height: 30vh;
+}
+#insert_container .brd_center #brd_form input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+#insert_container .brd_center #brd_form textarea {
+  width: 100%;
+  height: 80%;
+  margin-bottom: 20px;
+  resize: none;
+}
+
+#brdList_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#brdList_container .brd_center {
+  width: 70vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#brdList_container .brd_center table tr th {
+  text-align: left;
+}
+#brdDetail_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#brdDetail_container .brd_center {
+  position: relative;
+  width: 70vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#brdDetail_container .brd_center .brdList_top {
+  display: flex;
+  margin-bottom: 30px;
+}
+#brdDetail_container .brd_center .brdList_top .brd_number {
+  margin-right: 10px;
+}
+#brdDetail_container .brd_center .brd_context {
+  margin-bottom: 30px;
+  white-space: pre;
+}
+#brdDetail_container .brd_center .brd_auther {
+  position: absolute;
+  top: 30px;
+  right: 0;
+}
+#brdDetail_container .brdDetail_btns a {
+  margin: 0 10px;
+}

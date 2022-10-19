@@ -41,3 +41,118 @@ a {text-decoration:none;}
         }
     }
 }
+
+// 로그인 페이지 작업 시작
+#login_container {
+    display:flex; justify-content:center; align-items:center;
+    .center {
+        width:100vw; height:100vh; display:flex; justify-content:center; align-items:center;
+        #login_form {
+            font-size:20px;
+            .line {
+                margin:10px 0;
+                label {
+                    width:80px;
+                    display:inline-block;
+                }
+                input {width:250px; font-size:20px;}
+            }
+            .btnline {
+                display:flex; justify-content:center;
+                button {
+                    width:80px; height:40px;
+                    margin:0 10px;
+                }
+            }
+        }
+    }
+}
+
+// 회원가입 페이지 작업 시작
+#join_container {
+    display:flex; justify-content:center; align-items:center;
+    .center {
+        width:100vw; height:50vh;
+        display:flex; justify-content:center; align-items:center;
+        #join_form {
+            width:30vw; height:30vh;
+            .line {
+                margin:20px 0;
+                label {
+                    width:100%;
+                    display:inline-block;
+                }
+                input {
+                    width:100%; font-size:20px;
+                }
+                span {display:block;}
+            }
+            button {
+                width:80px; height:40px;
+                display:block; margin:0 auto;
+            }
+        }
+    }
+}
+
+// 게시판 페이지 작업 시작
+// 글 작성 페이지 작업 시작
+#insert_container {
+    display:flex; justify-content:center; align-items:center;
+    .brd_center {
+        width:100vw; height:50vh; display:flex; justify-content:center; align-items:center;
+        #brd_form {
+            display:flex; flex-direction:column;
+            width:30vw; height:30vh;
+            input {width:100%; margin-bottom:20px;}
+            textarea {
+                width:100%; height:80%; margin-bottom:20px;
+                resize:none;
+            }
+        }
+    }
+}
+
+// 게시판 목록 페이지
+#brdList_container {
+    display:flex; justify-content:center; align-items:center;
+    .brd_center {
+        width:70vw; height:30vh; display:flex; flex-direction:column; justify-content:center;
+        table {
+            tr {
+                th {
+                    text-align:left;
+                }
+                td {
+
+                }
+            }
+        }
+        a {}
+    }
+}
+
+// 게시판 디테일 페이지
+#brdDetail_container {
+    display:flex; justify-content:center; align-items:center; flex-direction:column;
+    .brd_center {
+        position:relative;
+        width:70vw; height:30vh; display:flex; flex-direction:column; justify-content:center;
+        .brdList_top {
+            display:flex; margin-bottom:30px;
+            .brd_number { margin-right:10px;}
+        }
+        .brd_context {
+            margin-bottom:30px;
+            white-space:pre;
+        }
+        .brd_auther {
+            position:absolute; top:30px; right:0;
+        }
+    }
+    .brdDetail_btns {
+        a {
+            margin:0 10px;
+        }
+    }
+}
